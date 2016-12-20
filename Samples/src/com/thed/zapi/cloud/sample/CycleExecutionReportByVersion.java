@@ -1,3 +1,30 @@
+/* D SOFTWARE INCORPORATED
+ * Copyright 2007-2011 D Software Incorporated
+ * All Rights Reserved.
+ *
+ * NOTICE: D Software permits you to use, modify, and distribute this 
+file
+ * in accordance with the terms of the license agreement accompanying 
+it.
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an “AS IS? BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or 
+implied.
+ */
+/*
+ * This is a sample of what can be done by using API's with Zephyr through 
+the JAVA coding language.
+ * By creating the .java files, you can import them 
+into your workspace and then call them in your custom program. 
+ * 
+ * Eclipse Java EE IDE for Web Developers.
+Version: Neon Release (4.6.0)
+Build id: 20160613-1800
+ * Java- Java JDK 1.8.0_101
+ * 
+ * Author: Swapna Kumar Vemula, Product Support Engineer, D Software Inc.
+ */
 package com.thed.zapi.cloud.sample;
 
 import java.io.FileWriter;
@@ -37,19 +64,19 @@ public class CycleExecutionReportByVersion {
 
 		/** Declare JIRA,Zephyr URL,access and secret Keys */
 
-		String jiraBaseURL = "https://zfjcloud-21-demo.atlassian.net";
+		String jiraBaseURL = "https://demo.atlassian.net";
 		// zephyr connect URL got by ZAPI Installation
-		String zephyrBaseUrl = "https://qabench-api.zephyr4jiracloud.com/connect";
+		String zephyrBaseUrl = "https://api.zephyr4jiracloud.com/connect";
 		// zephyr accessKey , we can get from Addons >> zapi section
-		String accessKey = "YjE2MjdjMGEtNzExNy0zYjY1LWFkMzQtNjcwMDM3OTljOGMxIGFkbWluIGFkbWlu";
+		String accessKey = "YjE2MjdjMGEtNzExNy0zYjY1LWFkMzQtNjcwMDM3OTljFkbWluIGFkbWlu";
 		// zephyr secretKey , we can get from Addons >> zapi section
-		String secretKey = "qufnbimi96Ob2hq3ISF08yZ8nUvDRHmQw4c1eHGeGlk";
+		String secretKey = "qufnbimi96Ob2hq3ISF08yZ8Qw4c1eHGeGlk";
 
 		/** Declare parameter values here */
 		String userName = "admin";
 		String versionId = "-1";
 		String projectId = "10100";
-		String projectName = "Support_India";
+		String projectName = "Support";
 		String versionName = "Unscheduled";
 
 		ZFJCloudRestClient client = ZFJCloudRestClient.restBuilder(zephyrBaseUrl, accessKey, secretKey, userName)
