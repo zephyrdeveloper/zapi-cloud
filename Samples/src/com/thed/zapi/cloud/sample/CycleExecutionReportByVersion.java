@@ -83,8 +83,6 @@ public class CycleExecutionReportByVersion {
 				.build();
 		/**
 		 * Get List of Cycles by Project and Version
-		 * 
-		 * 
 		 */
 
 		final String getCyclesUri = API_GET_CYCLES.replace("{SERVER}", zephyrBaseUrl) + "projectId=" + projectId
@@ -152,9 +150,9 @@ public class CycleExecutionReportByVersion {
 						fileWriter.append(" " + "," + " " + "," + status + "," + counter.get(status));
 						fileWriter.append(NEW_LINE_SEPARATOR);
 						if (status.equalsIgnoreCase("UNEXECUTED")) {
-							unexecutedCount = counter.get(status);
+							unexecutedCount += counter.get(status);
 						} else {
-							executionCount = counter.get(status);
+							executionCount += counter.get(status);
 						}
 
 					}
