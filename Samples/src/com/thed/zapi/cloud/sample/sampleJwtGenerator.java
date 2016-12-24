@@ -8,7 +8,7 @@ file
 it.
  *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an “AS IS? BASIS,
+ * distributed under the License is distributed on an â€œAS IS? BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or 
 implied.
  */
@@ -65,12 +65,13 @@ public class sampleJwtGenerator {
 	 * @throws IllegalStateException 
 	 */
 	public static void main(String[] args) throws URISyntaxException, JobProgressException, JSONException, IllegalStateException, IOException {
-		// zephyr baseurl
-		String zephyrBaseUrl = "https://api.zephyr4jiracloud.com/connect";
+		// Replace Zephyr BaseUrl with the <ZAPI_CLOUD_URL> shared with ZAPI Cloud Installation
+		String zephyrBaseUrl = "<ZAPI_CLOUD_URL>";
 		// zephyr accessKey , we can get from Addons >> zapi section
 		String accessKey = "YjE2MjdjMGEtNzExNy0zYjY1LWFkMzQtNjcwMDM3IGFkbWluIGFkbWlu";
 		// zephyr secretKey , we can get from Addons >> zapi section
 		String secretKey = "qufnbimi96Ob2hq3ISF08yZ8nUvDRHmQwHGeGlk";
+		// Jira UserName
 		String userName = "admin";
 		ZFJCloudRestClient client = ZFJCloudRestClient.restBuilder(zephyrBaseUrl, accessKey, secretKey, userName).build();
 		JwtGenerator jwtGenerator = client.getJwtGenerator();
