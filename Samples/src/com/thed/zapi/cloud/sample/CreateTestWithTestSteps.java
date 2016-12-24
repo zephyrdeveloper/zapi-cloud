@@ -8,7 +8,7 @@ file
 it.
  *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an “AS IS? BASIS,
+ * distributed under the License is distributed on an â€œAS IS? BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or 
 implied.
  */
@@ -57,10 +57,10 @@ public class CreateTestWithTestSteps {
 	private static String API_CREATE_TEST_STEP = "{SERVER}/public/rest/api/1.0/teststep/";
 
 	/** Declare JIRA,Zephyr URL,access and secret Keys */
-
+	// Jira Cloud URL for the instance
 	private static String jiraBaseURL = "https://demo.atlassian.net";
-	// zephyr connect URL got by ZAPI Installation
-	private static String zephyrBaseUrl = "https://api.zephyr4jiracloud.com/connect";
+	// Replace zephyr baseurl <ZAPI_Cloud_URL> shared with the user for ZAPI Cloud Installation
+	private static String zephyrBaseUrl = "<ZAPI_Cloud_URL>";
 	// zephyr accessKey , we can get from Addons >> zapi section
 	private static String accessKey = "YjE2MjdjMGEtNzExNy0zYjY1LWFkMzQtNjcwMDM3MxIGFkbWluIGFkbWlu";
 	// zephyr secretKey , we can get from Addons >> zapi section
