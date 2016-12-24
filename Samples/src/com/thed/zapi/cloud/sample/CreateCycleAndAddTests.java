@@ -8,7 +8,7 @@ file
 it.
  *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an “AS IS? BASIS,
+ * distributed under the License is distributed on an â€œAS IS? BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or 
 implied.
  */
@@ -52,8 +52,8 @@ import com.thed.zephyr.cloud.rest.exception.JobProgressException;
 public class CreateCycleAndAddTests {
 	
 	public static void main(String[] args) throws URISyntaxException, JobProgressException, JSONException, IllegalStateException, IOException {
-		// zephyr baseurl
-		String zephyrBaseUrl = "https://api.zephyr4jiracloud.com/connect";
+		// Replace zephyr baseurl <ZAPI_Cloud_URL> shared with the user for ZAPI Cloud
+		String zephyrBaseUrl = "<ZAPI_Cloud_URL>";
 		// zephyr accessKey , we can get from Addons >> zapi section
 		String accessKey = "YjE2MjdjMGEtNzExNy0zYjY1LWFkMzQtNjcwMDM3OTljOGkbWluIGFkbWlu";
 		// zephyr secretKey , we can get from Addons >> zapi section
