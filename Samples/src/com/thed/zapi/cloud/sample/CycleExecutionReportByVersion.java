@@ -63,10 +63,10 @@ public class CycleExecutionReportByVersion {
 		final String fileName = "F:\\cycleExecutionReport.csv";
 
 		/** Declare JIRA,Zephyr URL,access and secret Keys */
-
+		// JIRA Cloud URL of the instance
 		String jiraBaseURL = "https://demo.atlassian.net";
-		// zephyr connect URL got by ZAPI Installation
-		String zephyrBaseUrl = "https://api.zephyr4jiracloud.com/connect";
+		// Replace zephyr baseurl <ZAPI_Cloud_URL> shared with the user for ZAPI Cloud Installation
+	        String zephyrBaseUrl = "<ZAPI_Cloud_URL>";
 		// zephyr accessKey , we can get from Addons >> zapi section
 		String accessKey = "YjE2MjdjMGEtNzExNy0zYjY1LWFkMzQtNjcwMDM3OTljFkbWluIGFkbWlu";
 		// zephyr secretKey , we can get from Addons >> zapi section
