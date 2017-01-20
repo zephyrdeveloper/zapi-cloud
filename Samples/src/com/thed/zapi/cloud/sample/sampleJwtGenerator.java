@@ -42,12 +42,9 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import com.thed.zephyr.cloud.rest.ZFJCloudRestClient;
 import com.thed.zephyr.cloud.rest.client.JwtGenerator;
-import com.thed.zephyr.cloud.rest.exception.JobProgressException;
 
 /**
  * @author swapna.vemula 12-Dec-2016
@@ -64,7 +61,7 @@ public class sampleJwtGenerator {
 	 * @throws IOException 
 	 * @throws IllegalStateException 
 	 */
-	public static void main(String[] args) throws URISyntaxException, JobProgressException, JSONException, IllegalStateException, IOException {
+	public static void main(String[] args) throws URISyntaxException, IllegalStateException, IOException {
 		// Replace Zephyr BaseUrl with the <ZAPI_CLOUD_URL> shared with ZAPI Cloud Installation
 		String zephyrBaseUrl = "<ZAPI_CLOUD_URL>";
 		// zephyr accessKey , we can get from Addons >> zapi section
@@ -84,8 +81,8 @@ public class sampleJwtGenerator {
 		String jwt = jwtGenerator.generateJWT("GET", uri, expirationInSec);
 		
 		// Print the URL and JWT token to be used for making the REST call
-		System.out.println(uri.toString());
-		System.out.println(jwt);	
+		System.out.println("FINAL API : " +uri.toString());
+		System.out.println("JWT Token : " +jwt);	
 
 	
 	}
