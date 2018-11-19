@@ -74,12 +74,13 @@ public class CycleExecutionReportByVersion {
 
 		/** Declare parameter values here */
 		String userName = "admin";
+		String accountId = "accountId";
 		String versionId = "-1";
 		String projectId = "10100";
 		String projectName = "Support";
 		String versionName = "Unscheduled";
 
-		ZFJCloudRestClient client = ZFJCloudRestClient.restBuilder(zephyrBaseUrl, accessKey, secretKey, userName)
+		ZFJCloudRestClient client = ZFJCloudRestClient.restBuilder(zephyrBaseUrl, accessKey, secretKey, userName, accountId)
 				.build();
 		/**
 		 * Get List of Cycles by Project and Version

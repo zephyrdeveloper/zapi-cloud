@@ -59,7 +59,8 @@ public class CreateCycleAndAddTests {
 		// zephyr secretKey , we can get from Addons >> zapi section
 		String secretKey = "qufnbimi96Ob2hq3ISF08yZ8HmQw4c1eHGeGlk";
 		String userName = "admin";
-		ZFJCloudRestClient client = ZFJCloudRestClient.restBuilder(zephyrBaseUrl, accessKey, secretKey, userName)
+		String accountId = "accountId";
+		ZFJCloudRestClient client = ZFJCloudRestClient.restBuilder(zephyrBaseUrl, accessKey, secretKey, userName, accountId)
 				.build();
 
 		/** Declare the Variables here **/

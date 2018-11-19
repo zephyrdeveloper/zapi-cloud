@@ -69,11 +69,12 @@ public class CreateTestWithTestSteps {
 	/** Declare parameter values here */
 
 	private static String userName = "admin";
+	private static String accountId = "accountId";
 	private static String password = "password";
 	private static String projectId = "10100";
 	private static String issueTypeId = "10005";
 
-	static ZFJCloudRestClient client = ZFJCloudRestClient.restBuilder(zephyrBaseUrl, accessKey, secretKey, userName)
+	static ZFJCloudRestClient client = ZFJCloudRestClient.restBuilder(zephyrBaseUrl, accessKey, secretKey, userName, accountId)
 			.build();
 	JwtGenerator jwtGenerator = client.getJwtGenerator();
 

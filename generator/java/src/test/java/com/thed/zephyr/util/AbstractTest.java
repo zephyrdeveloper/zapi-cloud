@@ -16,12 +16,13 @@ public class AbstractTest {
  //   final static String secretKey = "ezBkGY4V0fnNyE3mAMNl813rhxqM5c79fijbdlf3eZQ";
 
     final static String userName = "admin";
+    final static String accountId = "accountId";
     final static String zephyrBaseUrl = "https://ea7decb8.ngrok.io";
     public static ZFJCloudRestClient client;
 
     public Logger log = LoggerFactory.getLogger(AbstractTest.class);
 
     static {
-        client = ZFJCloudRestClient.restBuilder(zephyrBaseUrl, accessKey, secretKey, userName).build();
+        client = ZFJCloudRestClient.restBuilder(zephyrBaseUrl, accessKey, secretKey, userName, accountId).build();
     }
 }

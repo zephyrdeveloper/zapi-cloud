@@ -20,6 +20,7 @@ import com.google.common.collect.Maps;
 import com.thed.zephyr.cloud.rest.client.JwtGenerator;
 import com.thed.zephyr.cloud.rest.client.JwtAuthorizationGenerator;
 import com.thed.zephyr.cloud.rest.model.ZConfig;
+import net.minidev.json.JSONObject;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicHeaderValueParser;
@@ -81,6 +82,15 @@ public class JwtGeneratorImpl implements JwtGenerator {
                         .issuedAt(TimeUtil.currentTimeSeconds())
                         .expirationTime(TimeUtil.currentTimePlusNSeconds(jwtExpiryWindowSeconds))
                         .issuer(zConfig.host.getKey());
+
+
+                if(zConfig.ACCOUNT_ID != null && zConfig.ACCOUNT_ID.isDefined()){
+                    JSONObject contextObject = new JSONObject();
+                    JSONObject userObject = new JSONObject();
+                    userObject.put("accountId",zConfig.ACCOUNT_ID.getOrElse("").toString());
+                    contextObject.put("user",userObject);
+                    jsonBuilder.claim("context",contextObject);
+                }
 
                 if (null != userKeyValue) {
                     jsonBuilder = jsonBuilder.subject(userKeyValue);

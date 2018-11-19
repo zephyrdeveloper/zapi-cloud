@@ -70,7 +70,10 @@ public class sampleJwtGenerator {
 		String secretKey = "qufnbimi96Ob2hq3ISF08yZ8nUvDRHmQwHGeGlk";
 		// Jira UserName
 		String userName = "admin";
-		ZFJCloudRestClient client = ZFJCloudRestClient.restBuilder(zephyrBaseUrl, accessKey, secretKey, userName).build();
+
+		// Jira UserName
+		String accountId = "accountId";
+		ZFJCloudRestClient client = ZFJCloudRestClient.restBuilder(zephyrBaseUrl, accessKey, secretKey, userName, accountId).build();
 		JwtGenerator jwtGenerator = client.getJwtGenerator();
 		
 		// API to which the JWT token has to be generated

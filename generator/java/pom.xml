@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.thed.zephyr.connect</groupId>
     <artifactId>zfj-cloud-rest-client</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
     <repositories>
         <repository>
             <id>atlassian-public1</id>
@@ -116,6 +116,11 @@
             </exclusions>
         </dependency>
         -->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20180130</version>
+        </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>

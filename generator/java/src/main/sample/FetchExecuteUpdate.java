@@ -48,9 +48,6 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicHeader;
 import org.apache.http.util.EntityUtils;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import com.thed.zephyr.cloud.rest.ZFJCloudRestClient;
 import com.thed.zephyr.cloud.rest.client.JwtGenerator;
@@ -74,12 +71,13 @@ public class FetchExecuteUpdate {
 
 	/** Declare parameter values here */
 	private static String userName = "admin";
+	private static String accountId = "accountId";
 	private static String password = "password";
 	private static String cycleId = "-1";
 	private static String versionId = "-1";
 	private static String projectId = "10100";
 
-	static ZFJCloudRestClient client = ZFJCloudRestClient.restBuilder(zephyrBaseUrl, accessKey, secretKey, userName)
+	static ZFJCloudRestClient client = ZFJCloudRestClient.restBuilder(zephyrBaseUrl, accessKey, secretKey, userName, accountId)
 			.build();
 	JwtGenerator jwtGenerator = client.getJwtGenerator();
 
