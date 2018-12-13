@@ -16,6 +16,9 @@ def is_json(data):
 # USER
 USER = 'admin'
 
+# ACCOUNT ID
+ACCOUNT_ID = 'accountId'
+
 # ACCESS KEY from navigation >> Tests >> API Keys
 ACCESS_KEY = 'amlyYTplN2UyNjFjNC02MTM4LTRiZWEtYWRiNy1lYmMyMjk0ZmZlMGUgYWRtaW4'
 
@@ -41,6 +44,11 @@ payload_token = {
             'iss': ACCESS_KEY,
             'exp': int(time.time())+JWT_EXPIRE,
             'iat': int(time.time())
+            'context': {
+                'user': {
+                    'accountId': ACCOUNT_ID
+                }
+            }
         }
 
 # GENERATE TOKEN
