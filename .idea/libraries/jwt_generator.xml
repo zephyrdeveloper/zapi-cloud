@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="jwt-generator">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/generator/java/compiled/jwt-generator.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/generator/java/compiled/jwt-generator.jar!/" />
+    </SOURCES>
+  </library>
+</component>
