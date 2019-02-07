@@ -43,7 +43,7 @@ payload_token = {
             'qsh': hashlib.sha256(CANONICAL_PATH.encode('utf-8')).hexdigest(),
             'iss': ACCESS_KEY,
             'exp': int(time.time())+JWT_EXPIRE,
-            'iat': int(time.time())
+            'iat': int(time.time()),
             'context': {
                 'user': {
                     'accountId': ACCOUNT_ID
