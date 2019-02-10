@@ -52,7 +52,7 @@ public class JwtAuthorizationGenerator {
         this.jwtExpiryWindowSeconds = jwtExpiryWindowSeconds;
     }
 
-    public Option<String> generate(String httpMethodStr, String url, Map<String, List<String>> parameters, AcHost acHost, Option<String> userId) throws JwtIssuerLacksSharedSecretException, JwtUnknownIssuerException, URISyntaxException {
+    public Option<String> generate(String httpMethodStr, String url, Map<String, List<String>> parameters, AcHost acHost, Option<String> accountId) throws JwtIssuerLacksSharedSecretException, JwtUnknownIssuerException, URISyntaxException {
         HttpMethod method = HttpMethod.valueOf(httpMethodStr);
         URI uri = new URI(url);
         String path = uri.getPath();
@@ -63,15 +63,15 @@ public class JwtAuthorizationGenerator {
     //    Utils.LOGGER.trace(String.format("httpMethod: \'%s\'", new Object[]{httpMethodStr}));
      //   Utils.LOGGER.trace(String.format("URL: \'%s\'", new Object[]{url}));
     //    Utils.LOGGER.trace(String.format("acHost key: \'%s\'", new Object[]{acHost.getKey()}));
-    //    Utils.LOGGER.trace(String.format("userId: \'%s\'", new Object[]{userId}));
+    //    Utils.LOGGER.trace(String.format("accountId: \'%s\'", new Object[]{accountId}));
     //    Utils.LOGGER.trace(String.format("Parameters: %s", new Object[]{parameters}));
     //    Utils.LOGGER.trace(String.format("pathWithoutProductContext: \'%s\'", new Object[]{pathWithoutProductContext}));
         URI uriWithoutProductContext = new URI(uri.getScheme(), uri.getUserInfo(), uri.getHost(), uri.getPort(), pathWithoutProductContext, uri.getQuery(), uri.getFragment());
     //    Utils.LOGGER.trace(String.format("uriWithoutProductContext: \'%s\'", new Object[]{uriWithoutProductContext}));
-        return this.generate(method, uriWithoutProductContext, parameters, acHost, userId);
+        return this.generate(method, uriWithoutProductContext, parameters, acHost, accountId);
     }
 
-    public Option<String> generate(HttpMethod httpMethod, URI url, Map<String, List<String>> parameters, AcHost acHost, Option<String> userId) throws JwtIssuerLacksSharedSecretException, JwtUnknownIssuerException {
+    public Option<String> generate(HttpMethod httpMethod, URI url, Map<String, List<String>> parameters, AcHost acHost, Option<String> accountId) throws JwtIssuerLacksSharedSecretException, JwtUnknownIssuerException {
         Preconditions.checkArgument(null != parameters, "Parameters Map argument cannot be null");
         Preconditions.checkNotNull(acHost);
         Map paramsAsArrays = Maps.transformValues(parameters, new Function<List<String>, String[]>() {
@@ -81,15 +81,15 @@ public class JwtAuthorizationGenerator {
             }
         });
 
-        return Option.some("JWT " + this.encodeJwt(httpMethod, url, paramsAsArrays, (String)userId.getOrNull(), acHost));
+        return Option.some("JWT " + this.encodeJwt(httpMethod, url, paramsAsArrays, (String)accountId.getOrNull(), acHost));
     }
 
-    private String encodeJwt(HttpMethod httpMethod, URI targetPath, Map<String, String[]> params, String userKeyValue, AcHost acHost) throws JwtUnknownIssuerException, JwtIssuerLacksSharedSecretException {
+    private String encodeJwt(HttpMethod httpMethod, URI targetPath, Map<String, String[]> params, String accountId, AcHost acHost) throws JwtUnknownIssuerException, JwtIssuerLacksSharedSecretException {
         Preconditions.checkArgument(null != httpMethod, "HttpMethod argument cannot be null");
         Preconditions.checkArgument(null != targetPath, "URI argument cannot be null");
         JwtJsonBuilder jsonBuilder = (new JsonSmartJwtJsonBuilder()).issuedAt(TimeUtil.currentTimeSeconds()).expirationTime(TimeUtil.currentTimePlusNSeconds((long)this.jwtExpiryWindowSeconds)).issuer(AC.PLUGIN_KEY).audience(acHost.getKey());
-        if(null != userKeyValue) {
-            jsonBuilder = jsonBuilder.subject(userKeyValue);
+        if(null != accountId) {
+            jsonBuilder = jsonBuilder.subject(accountId);
         }
 
         Object completeParams = params;

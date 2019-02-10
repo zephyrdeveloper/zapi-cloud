@@ -14,7 +14,7 @@ def is_json(data):
 
 
 # USER
-USER = 'admin'
+ACCOUNT_ID = '123456:1234abcd-1234-abcd-1234-1234abcd1234'
 
 # ACCESS KEY from navigation >> Tests >> API Keys
 ACCESS_KEY = 'amlyYTplN2UyNjFjNC02MTM4LTRiZWEtYWRiNy1lYmMyMjk0ZmZlMGUgYWRtaW4'
@@ -36,7 +36,7 @@ CANONICAL_PATH = 'POST&'+RELATIVE_PATH+'&'
 
 # TOKEN HEADER: to generate jwt token
 payload_token = {
-            'sub': USER,
+            'sub': ACCOUNT_ID,
             'qsh': hashlib.sha256(CANONICAL_PATH.encode('utf-8')).hexdigest(),
             'iss': ACCESS_KEY,
             'exp': int(time.time())+JWT_EXPIRE,

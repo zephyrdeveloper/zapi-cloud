@@ -15,7 +15,6 @@ public class AbstractTest {
     final static String secretKey = "PCaxEBZKIkwRdHWocjuIIdbH2hRR7TvwL2RO5T7wjdY";/*replace with you credentials */
  //   final static String secretKey = "ezBkGY4V0fnNyE3mAMNl813rhxqM5c79fijbdlf3eZQ";
 
-    final static String userName = "admin";
     final static String accountId = "accountId";
     final static String zephyrBaseUrl = "https://ea7decb8.ngrok.io";
     public static ZFJCloudRestClient client;
@@ -23,6 +22,6 @@ public class AbstractTest {
     public Logger log = LoggerFactory.getLogger(AbstractTest.class);
 
     static {
-        client = ZFJCloudRestClient.restBuilder(zephyrBaseUrl, accessKey, secretKey, userName, accountId).build();
+        client = ZFJCloudRestClient.restBuilder(zephyrBaseUrl, accessKey, secretKey, accountId).build();
     }
 }

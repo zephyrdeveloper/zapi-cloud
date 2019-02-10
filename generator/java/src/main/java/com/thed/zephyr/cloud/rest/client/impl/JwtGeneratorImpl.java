@@ -73,7 +73,7 @@ public class JwtGeneratorImpl implements JwtGenerator {
                         acHost));
             }
 
-            private String encodeJwt(HttpMethod httpMethod, URI targetPath, Map<String, String[]> params, String userKeyValue,
+            private String encodeJwt(HttpMethod httpMethod, URI targetPath, Map<String, String[]> params, String accountId,
                                      AcHost acHost) throws JwtUnknownIssuerException, JwtIssuerLacksSharedSecretException {
                 checkArgument(null != httpMethod, "HttpMethod argument cannot be null");
                 checkArgument(null != targetPath, "URI argument cannot be null");
@@ -84,16 +84,9 @@ public class JwtGeneratorImpl implements JwtGenerator {
                         .issuer(zConfig.host.getKey());
 
 
-                if(zConfig.ACCOUNT_ID != null && zConfig.ACCOUNT_ID.isDefined()){
-                    JSONObject contextObject = new JSONObject();
-                    JSONObject userObject = new JSONObject();
-                    userObject.put("accountId",zConfig.ACCOUNT_ID.getOrElse("").toString());
-                    contextObject.put("user",userObject);
-                    jsonBuilder.claim("context",contextObject);
-                }
 
-                if (null != userKeyValue) {
-                    jsonBuilder = jsonBuilder.subject(userKeyValue);
+                if (null != accountId) {
+                    jsonBuilder = jsonBuilder.subject(accountId);
                 }
 
                 Map<String, String[]> completeParams = params;
@@ -157,7 +150,7 @@ public class JwtGeneratorImpl implements JwtGenerator {
         try {
             final URI uriWithoutProductContext = getUri(uri, zConfig.ZEPHYR_BASE_URL);
 
-            jwt = jwtAuthorisationGenerator.generate(HttpMethod.valueOf(requestMethod), uriWithoutProductContext, new HashMap<String, List<String>>(), zConfig.host, zConfig.USER_NAME);
+            jwt = jwtAuthorisationGenerator.generate(HttpMethod.valueOf(requestMethod), uriWithoutProductContext, new HashMap<String, List<String>>(), zConfig.host, zConfig.ACCOUNT_ID);
         } catch (Exception e) {
         }
         final String authorizationHeaderValue = jwt.getOrNull();

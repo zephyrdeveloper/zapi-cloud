@@ -5,8 +5,8 @@ import hashlib
 
 class JWTGenerator:
 
-    def __init__(self, user, access_key, secret_key, canonical_path):
-        self.user = user
+    def __init__(self, account_id, access_key, secret_key, canonical_path):
+        self.account_id = account_id
         self.access_key = access_key
         self.secret_key = secret_key
         self.expire = 3600
@@ -15,7 +15,7 @@ class JWTGenerator:
     @property
     def jwt(self):
         payload = {
-            'sub': self.user,
+            'sub': self.account_id,
             'qsh': hashlib.sha256(self.canonical_path.encode('utf-8')).hexdigest(),
             'iss': self.access_key,
             'exp': time.time()+self.expire,

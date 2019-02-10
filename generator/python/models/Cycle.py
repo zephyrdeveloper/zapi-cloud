@@ -10,6 +10,8 @@ class Cycle(object):
         self.description = description
         self.sprintId = sprint_id
         self.createdBy = None
+        self.createdByAccountId = None
         self.modifiedBy = None
+        self.modifiedByAccountId = None
         self.startDate = None
         self.endDate = None

@@ -14,7 +14,6 @@ import java.util.Map;
  */
 public class ZConfig extends PropertiesConfiguration {
 
-    public Option<String> USER_NAME;
     public Option<String> ACCOUNT_ID;
     public String JIRA_HOST_KEY;
     public String JIRA_BASE_URL;
@@ -27,7 +26,6 @@ public class ZConfig extends PropertiesConfiguration {
     public AcHost host;
 
     final List<String> reqdConfigKeys = ImmutableList.<String>builder()
-            .add("userName")
             .add("accountId")
             .add("jiraHostKey")
             .add("jiraBaseURL")
@@ -40,13 +38,12 @@ public class ZConfig extends PropertiesConfiguration {
     private ZConfig(){
     }
 
-    public  ZConfig(String accessKey, String secretKey, String userName, String accountId, String zephyrBaseUrl) {
+    public  ZConfig(String accessKey, String secretKey, String accountId, String zephyrBaseUrl) {
         JIRA_HOST_KEY = accessKey;
         JIRA_SHARED_SECRET = secretKey;
 
         ZEPHYR_BASE_URL = zephyrBaseUrl;
         ACCESS_KEY = accessKey;
-        USER_NAME = Option.option(userName);
         ACCOUNT_ID = Option.option(accountId);
 
         host = new AcHost();
@@ -126,10 +123,6 @@ public class ZConfig extends PropertiesConfiguration {
             return this;
         }
 
-        public ZConfigBuilder withJiraUserName(String userName) {
-            zconfig.addProperty("userName", userName);
-            return this;
-        }
 
         public ZConfigBuilder withJiraAccountId(String accountId) {
             zconfig.addProperty("accountId", accountId);
@@ -153,7 +146,6 @@ public class ZConfig extends PropertiesConfiguration {
         ACCESS_KEY = this.getString("accessKey");
         //APP_KEY = this.getString("appKey");
 
-        USER_NAME =  Option.some(this.getString("userName"));
         ACCOUNT_ID =  Option.some(this.getString("accountId"));
 
         host = new AcHost();

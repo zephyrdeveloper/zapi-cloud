@@ -77,7 +77,7 @@ public class FetchExecuteUpdate {
 	private static String versionId = "-1";
 	private static String projectId = "10100";
 
-	static ZFJCloudRestClient client = ZFJCloudRestClient.restBuilder(zephyrBaseUrl, accessKey, secretKey, userName, accountId)
+	static ZFJCloudRestClient client = ZFJCloudRestClient.restBuilder(zephyrBaseUrl, accessKey, secretKey, accountId)
 			.build();
 	JwtGenerator jwtGenerator = client.getJwtGenerator();
 
