@@ -65,15 +65,12 @@ public class sampleJwtGenerator {
 		// Replace Zephyr BaseUrl with the <ZAPI_CLOUD_URL> shared with ZAPI Cloud Installation
 		String zephyrBaseUrl = "<ZAPI_CLOUD_URL>";
 		// zephyr accessKey , we can get from Addons >> zapi section
-		String accessKey = "YjE2MjdjMGEtNzExNy0zYjY1LWFkMzQtNjcwMDM3IGFkbWluIGFkbWlu";
+		String accessKey = "YjE2MjdjMGEtNzExNy0zYjY1LWFkMzQtNjcwMDM3IGI0NjI3YzBhLTUxMTctMzM2NS1hZDM0IGFkbWlu";
 		// zephyr secretKey , we can get from Addons >> zapi section
 		String secretKey = "qufnbimi96Ob2hq3ISF08yZ8nUvDRHmQwHGeGlk";
-		// Jira UserName
-		String userName = "admin";
-
-		// Jira UserName
+		// Jira accountId
 		String accountId = "accountId";
-		ZFJCloudRestClient client = ZFJCloudRestClient.restBuilder(zephyrBaseUrl, accessKey, secretKey, userName, accountId).build();
+		ZFJCloudRestClient client = ZFJCloudRestClient.restBuilder(zephyrBaseUrl, accessKey, secretKey, accountId).build();
 		JwtGenerator jwtGenerator = client.getJwtGenerator();
 		
 		// API to which the JWT token has to be generated

@@ -74,7 +74,7 @@ public class CreateTestWithTestSteps {
 	private static String projectId = "10100";
 	private static String issueTypeId = "10005";
 
-	static ZFJCloudRestClient client = ZFJCloudRestClient.restBuilder(zephyrBaseUrl, accessKey, secretKey, userName, accountId)
+	static ZFJCloudRestClient client = ZFJCloudRestClient.restBuilder(zephyrBaseUrl, accessKey, secretKey, accountId)
 			.build();
 	JwtGenerator jwtGenerator = client.getJwtGenerator();
 
